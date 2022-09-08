@@ -14,23 +14,26 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1 class="mt-5 text-info">
-        <span class="lead fs-4 text-secondary ms-5">the meaning of </span>
+    <div
+      class="container bg-light pt-4 pb-5"
+      style="width: 700px; margin 0 auto;"
+    >
+      <h1 class="mt-5 text-info text-center">
+        <span class="lead fs-4 text-secondary">the meaning of </span>
         {{worker.term}}
       </h1>
 
       <div
         class="alert alert-light fs-4 border shadow"
         role="alert"
-        style="width: 500px"
+        style="width: 500px; margin: 0 auto"
       >
-        {{worker.meaning1|slice:300|linebreaks}}...
+        {{worker.meaning1|slice:300|linebreaks}}
       </div>
       <div
         class="alert alert-light fs-4 border shadow"
         role="alert"
-        style="width: 500px"
+        style="width: 500px; margin: 0 auto"
       >
         {{worker.meaning2|linebreaks}}
       </div>
