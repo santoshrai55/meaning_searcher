@@ -26,7 +26,7 @@ def searcher():
             if term != "":
                 page = requests.get(URL)
                 print(page)
-                time.sleep(0.10)
+                time.sleep(0.01)
                 soup = BeautifulSoup(page.content, "html.parser")
                 terms = ''
                 try:
@@ -42,17 +42,25 @@ def searcher():
                 except:
                     terms = "second meaning not found"
 
-                final_term = terms+terms2
-                final_term = final_term.replace('etc.:', 'etc:\n')
-                final_term = final_term.replace('.', '\n')
-                final_term = final_term.replace('noun', 'NOUN: \n')
-                final_term = final_term.replace('verb', '\n\nVERB: \n')
-                final_term = final_term.replace('SEE MORESEE LESS', ' ')
-                time.sleep(0.05)
+                def replacer(termbox):
+                    try:
+                        termbox = termbox.replace('etc.:', 'etc:\n')
+                        termbox = termbox.replace('.', '\n')
+                        termbox = termbox.replace('noun', 'NOUN: \n')
+                        termbox = termbox.replace('verb', '\n\nVERB: \n')
+                        termbox = termbox.replace('SEE MORESEE LESS', ' ')
+                    except:
+                        termbox = termbox
+                    return termbox
+
+                meaning1 = replacer(terms)
+                meaning2 = replacer(terms2)
+                time.sleep(0.02)
                 # print("--------RESULT--------")
                 # print(final_term)
                 # print("--------------------")
-                result = {'term': term, 'final_term': final_term}
+                result = {'term': term, 'meaning1': meaning1,
+                          'meaning2': meaning2}
                 return result
 
             else:

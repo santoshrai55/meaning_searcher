@@ -22,7 +22,14 @@
         role="alert"
         style="width: 500px"
       >
-        {{worker.final_term}}
+        {{worker.meaning1|slice:300|linebreaks}}...
+      </div>
+      <div
+        class="alert alert-light fs-4 border shadow"
+        role="alert"
+        style="width: 500px"
+      >
+        {{worker.meaning2|linebreaks}}
       </div>
     </div>
     <script>
