@@ -1,4 +1,7 @@
-@@Term Searcher@@
+```
+@@ MEANING SEARCHER @@
+```
+
 This app automatically search dictionary term that you have copied in your clipboard.
 This waits for the hotkey trigger. I have set this to "shift+f1".
 Anytime you click on "shift+F1" this will looks for the terms in the clipboard.
