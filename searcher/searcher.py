@@ -46,8 +46,11 @@ def searcher():
                     try:
                         termbox = termbox.replace('etc.:', 'etc:\n')
                         termbox = termbox.replace('.', '\n')
+                        termbox = termbox.replace('pronoun', 'PRONOUN: \n')
                         termbox = termbox.replace('noun', 'NOUN: \n')
-                        termbox = termbox.replace('verb', '\n\nVERB: \n')
+                        termbox = termbox.replace(': ', ': \n')
+                        termbox = termbox.replace('verbs', '\n\nVERBS: \n')
+                        termbox = termbox.replace('verb ', '\n\nVERB: \n')
                         termbox = termbox.replace('SEE MORESEE LESS', ' ')
                     except:
                         termbox = termbox
