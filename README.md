@@ -11,4 +11,4 @@ It searcher term from:
 
 Defination of 'investigate'
 
-<img src="https://snipboard.io/rQtncC.jpg" alt="Screenshot of the term search result for investigate" style="width:100%;"/>
+<img src="https://snipboard.io/rQtncC.jpg" alt="Screenshot of the term search result for investigate" style="width:80%;"/>
