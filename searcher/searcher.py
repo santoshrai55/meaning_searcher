@@ -43,11 +43,14 @@ def searcher():
                     terms2 = soup.find_all(
                         "section", class_="css-109x55k e1hk9ate4")[1].text
                 except:
-                    terms = "second meaning not found"
+                    terms2 = ""
 
                 def replacer(termbox):
                     try:
-                        termbox = termbox.replace('etc.:', 'etc:\n')
+                        termbox = termbox.replace('etc.:', 'etc\n')
+                        termbox = termbox.replace('etc.)', 'etc)')
+                        termbox = termbox.replace('adverb', 'ADVERB:\n')
+                        termbox = termbox.replace('adjective', 'ADJECTIVE:\n')
                         termbox = termbox.replace('.', '\n')
                         termbox = termbox.replace('pronoun', 'PRONOUN: \n')
                         termbox = termbox.replace('noun', 'NOUN: \n')
@@ -55,6 +58,7 @@ def searcher():
                         termbox = termbox.replace('verbs', '\n\nVERBS: \n')
                         termbox = termbox.replace('verb ', '\n\nVERB: \n')
                         termbox = termbox.replace('SEE MORESEE LESS', ' ')
+                        termbox = termbox.replace('\n, ', ' ')
                     except:
                         termbox = termbox
                     return termbox

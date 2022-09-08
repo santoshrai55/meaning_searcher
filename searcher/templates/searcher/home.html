@@ -30,19 +30,22 @@
       >
         {{worker.meaning1|slice:300|linebreaks}}
       </div>
+      {% if worker.meaning2 %}
+
       <div
         class="alert alert-light fs-4 border shadow"
         role="alert"
         style="width: 500px; margin: 0 auto"
       >
-        {{worker.meaning2|linebreaks}}
+        {{worker.meaning2|slice:200|linebreaks}}
       </div>
+      {% endif %}
     </div>
     <script>
       function myrefresh() {
         window.location.reload();
       }
-      setTimeout("myrefresh()", 1000); // Specify one refresh per second
+      setTimeout("myrefresh()", 2000); // Specify one refresh per second
       myrefresh();
     </script>
 
