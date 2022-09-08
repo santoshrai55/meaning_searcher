@@ -8,3 +8,7 @@ If it doesn't find the term in the dictionary, it will inform you so.
 
 It searcher term from:
 [Dictionary.com](https://www.dictionary.com)
+
+Defination of 'investigate'
+
+<img src="https://prnt.sc/R6OFAiCMOqAU" alt="Screenshot of the term search result for investigate" style="width:100%;"/>
