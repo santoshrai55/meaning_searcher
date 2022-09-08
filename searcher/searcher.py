@@ -15,6 +15,9 @@ def searcher():
         if keyboard.is_pressed(hotkey):
             # pyauto.typewrite('Hello world!')
             term = pyperclip.paste()
+            term = term.strip()
+            term = term.lower()
+            term = term.capitalize()
             print(f'this is the term: {term}')
             print("The term has been copied!")
             URL = f'https://www.dictionary.com/browse/{term}'
