@@ -14,39 +14,52 @@
   </head>
 
   <body>
+    <script>
+      function origin() {
+        window.moveTo(-2150, 0);
+      }
+      origin();
+      resizeTo(650, 750);
+      window.parent;
+      window.top;
+      {% comment %} function moveWin() {
+        window.moveTo(-250, 0);
+      }
+      moveWin(); {% endcomment %}
+    </script>
     <div
-      class="container bg-light pt-4 pb-5"
-      style="width: 700px; margin 0 auto;"
+      class="container bg-light pt-3 pb-3"
+      style="width: 600px; margin 0 auto;"
     >
-      <h1 class="mt-5 text-info text-center">
-        <span class="lead fs-4 text-secondary">the meaning of </span>
+      <h1 class="text-info text-center">
+        <span class="lead fs-5 text-secondary">the meaning of </span>
         {{worker.term}}
       </h1>
 
       <div
-        class="alert alert-light fs-4 border shadow"
+        class="alert alert-light fs-5 border shadow"
         role="alert"
-        style="width: 500px; margin: 0 auto"
+        style="max-width: 600px; margin: 0 auto"
       >
         {{worker.meaning1|slice:300|linebreaks}}
       </div>
       {% if worker.meaning2 %}
 
       <div
-        class="alert alert-light fs-4 border shadow"
+        class="alert alert-light fs-5 border shadow"
         role="alert"
-        style="width: 500px; margin: 0 auto"
+        style="max-width: 600px; margin: 0 auto"
       >
         {{worker.meaning2|slice:200|linebreaks}}
       </div>
       {% endif %}
     </div>
+
     <script>
       function myrefresh() {
         window.location.reload();
       }
-      setTimeout("myrefresh()", 2000); // Specify one refresh per second
-      myrefresh();
+      setTimeout("myrefresh()", 5000); // Specify one refresh per second
     </script>
 
     <script
