@@ -21,10 +21,10 @@
   <body class="bg-light">
     <script>
       function origin() {
-        window.moveTo(-2150, 0);
+        window.moveTo(-2600, 0);
       }
       origin();
-      resizeTo(650, 750);
+      resizeTo(650, 1000);
       window.parent;
       window.top;
       {% comment %} function moveWin() {
@@ -43,8 +43,19 @@
         role="alert"
         style="max-width: 600px; margin: 0 auto"
       >
+        <h2>Hindi Meaning</h2>
+
+        {% for meaning in worker.hindi %} {{meaning}}, {% endfor %}
+      </div>
+
+      <div
+        class="alert alert-light fs-5 border shadow"
+        role="alert"
+        style="max-width: 600px; margin: 0 auto"
+      >
         {{worker.meaning1|slice:300|linebreaks}}
       </div>
+
       {% if worker.meaning2 %}
 
       <div

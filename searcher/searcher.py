@@ -5,6 +5,10 @@ import requests
 import keyboard
 import time
 
+# import function from hindi.py
+# this function searches hindi meaning of the provided term.
+from . import hindi
+
 
 def searcher():
 
@@ -65,12 +69,14 @@ def searcher():
 
                 meaning1 = replacer(terms)
                 meaning2 = replacer(terms2)
+
+                hindi_meaning = hindi.hindiMeaning(term)
                 time.sleep(0.02)
                 # print("--------RESULT--------")
                 # print(final_term)
                 # print("--------------------")
                 result = {'term': term, 'meaning1': meaning1,
-                          'meaning2': meaning2}
+                          'meaning2': meaning2, 'hindi': hindi_meaning}
                 return result
 
             else:
