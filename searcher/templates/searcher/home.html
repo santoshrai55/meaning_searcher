@@ -24,13 +24,9 @@
         window.moveTo(-2600, 0);
       }
       origin();
-      resizeTo(650, 1000);
+      resizeTo(650, 800);
       window.parent;
       window.top;
-      {% comment %} function moveWin() {
-        window.moveTo(-250, 0);
-      }
-      moveWin(); {% endcomment %}
     </script>
     <div class="container pt-3 pb-3" style="width: 600px; margin 0 auto;">
       <h1 class="text-info text-center">
@@ -43,7 +39,7 @@
         role="alert"
         style="max-width: 600px; margin: 0 auto"
       >
-        <h2>Hindi Meaning</h2>
+        <h2>Hindi Meanings:</h2>
 
         {% for meaning in worker.hindi %} {{meaning}}, {% endfor %}
       </div>
@@ -53,10 +49,13 @@
         role="alert"
         style="max-width: 600px; margin: 0 auto"
       >
-        {{worker.meaning1|slice:300|linebreaks}}
+        <h2>English Definations:</h2>
+        {% for meaning in worker.english %}
+        <p>{{meaning|slice:100}}</p>
+        {% endfor %}
       </div>
 
-      {% if worker.meaning2 %}
+      {% comment %} {% if worker.meaning2 %}
 
       <div
         class="alert alert-light fs-5 border shadow"
@@ -65,7 +64,7 @@
       >
         {{worker.meaning2|slice:200|linebreaks}}
       </div>
-      {% endif %}
+      {% endif %} {% endcomment %}
     </div>
 
     <script>
