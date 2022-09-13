@@ -44,6 +44,8 @@
         {% for meaning in worker.hindi %} {{meaning}}, {% endfor %}
       </div>
 
+      {% if worker.english %}
+
       <div
         class="alert alert-light fs-5 border shadow"
         role="alert"
@@ -54,8 +56,7 @@
         <p>{{meaning|slice:100}}</p>
         {% endfor %}
       </div>
-
-      {% comment %} {% if worker.meaning2 %}
+      {% endif %} {% comment %} {% if worker.meaning2 %}
 
       <div
         class="alert alert-light fs-5 border shadow"
