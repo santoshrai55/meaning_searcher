@@ -24,22 +24,25 @@ def searcher():
             term = term.capitalize()
             print(f'this is the term: {term}')
             print("The term has been copied!")
-            URL = f'https://www.dictionary.com/browse/{term}'
+            # URL = f'https://www.dictionary.com/browse/{term}'
 
             print("Looking for the term ...")
             # ctrl-c is usually very fast but your program may execute faster
             time.sleep(.01)
 
             if term != "":
-                page = requests.get(URL)
-                print(page)
-                time.sleep(0.01)
+                # if ' ' in term:
+                #     idiom = functions.idiomDefination(term)
+
+                # else:
+                #     idiom = " "
                 english_meaning = functions.englishMeaning(term)
                 hindi_meaning = functions.hindiMeaning(term)
                 time.sleep(0.02)
                 # print("--------RESULT--------")
                 # print(final_term)
                 # print("--------------------")
+
                 result = {'term': term, 'english': english_meaning,
                           'hindi': hindi_meaning}
                 return result

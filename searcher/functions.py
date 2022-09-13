@@ -45,3 +45,27 @@ def englishMeaning(term):
         meanings = "meaning not found"
 
     return meanings
+
+
+def idiomDefination(term):
+
+    URL = f'https://dictionary.cambridge.org/dictionary/{term}'
+    page = requests.get(URL)
+
+    print(page)
+    soup = BeautifulSoup(page.content, "html.parser")
+    terms = ''
+    try:
+        terms = soup.find_all(
+            "div", class_="sense-body dsense_b")
+
+        # meaning2 = soup.find_all(
+        #     "div", class_="css-1o7vb91 e1q3nk1v2")[0].text
+        meanings = [meaning.text for meaning in terms]
+        if len(meanings) > 5:
+            meanings = meanings[:5]
+
+    except:
+        meanings = "idiom not found"
+
+    return meanings
