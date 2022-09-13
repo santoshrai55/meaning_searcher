@@ -28,7 +28,9 @@
       window.parent;
       window.top;
     </script>
+
     <div class="container pt-3 pb-3" style="width: 600px; margin 0 auto;">
+      {% if worker.status %}
       <h1 class="text-info text-center">
         <span class="lead fs-5 text-secondary">the meaning of </span>
         {{worker.term}}
@@ -55,6 +57,15 @@
         {% for meaning in worker.english %}
         <p>{{meaning|slice:100}}</p>
         {% endfor %}
+      </div>
+      {% endif %} {% endif %} {% if not worker.status %}
+      <div
+        class="alert alert-light fs-5 border shadow"
+        role="alert"
+        style="max-width: 600px; margin: 0 auto"
+      >
+        <p class="text-danger">Sorry!</p>
+        <p class="text-danger">There is no internet connection!</p>
       </div>
       {% endif %} {% comment %} {% if worker.meaning2 %}
 

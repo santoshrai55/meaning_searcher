@@ -31,21 +31,28 @@ def searcher():
             time.sleep(.01)
 
             if term != "":
-                # if ' ' in term:
-                #     idiom = functions.idiomDefination(term)
+                test = functions.internetWorking()
+                if test == True:
 
-                # else:
-                #     idiom = " "
-                english_meaning = functions.englishMeaning(term)
-                hindi_meaning = functions.hindiMeaning(term)
-                time.sleep(0.02)
-                # print("--------RESULT--------")
-                # print(final_term)
-                # print("--------------------")
+                    # if ' ' in term:
+                    #     idiom = functions.idiomDefination(term)
 
-                result = {'term': term, 'english': english_meaning,
-                          'hindi': hindi_meaning}
-                return result
+                    # else:
+                    #     idiom = " "
+                    english_meaning = functions.englishMeaning(term)
+                    hindi_meaning = functions.hindiMeaning(term)
+                    time.sleep(0.02)
+                    # print("--------RESULT--------")
+                    # print(final_term)
+                    # print("--------------------")
+
+                    result = {'status': "ok", 'term': term, 'english': english_meaning,
+                              'hindi': hindi_meaning}
+                    return result
+                else:
+                    result = {'status': False, 'term': term, 'english': '',
+                              'hindi': ''}
+                    return result
                 # soup = BeautifulSoup(page.content, "html.parser")
                 # terms = ''
                 # try:

@@ -1,12 +1,26 @@
 from bs4 import BeautifulSoup
 import requests
+import urllib.request
+
+
+def internetWorking(host='http://google.com'):
+    try:
+        urllib.request.urlopen(host)
+        return True
+    except:
+        return False
+
 
 # hindi meaning searcher
+# result = internetWorking()
+
+# print(result)
 
 
 def hindiMeaning(term):
     URL = f"https://dict.hinkhoj.com/shabdkhoj.php?word={term}&ie=UTF-8"
     page = requests.get(URL)
+    print(f'for hindi meaning: {page}')
     soup = BeautifulSoup(page.content, "html.parser")
     try:
         # searches all the meaning in hindi
@@ -28,7 +42,7 @@ def hindiMeaning(term):
 def englishMeaning(term):
     URL = f'https://www.dictionary.com/browse/{term}'
     page = requests.get(URL)
-
+    print(f'for english meaning: {page}')
     soup = BeautifulSoup(page.content, "html.parser")
     terms = ''
     try:
