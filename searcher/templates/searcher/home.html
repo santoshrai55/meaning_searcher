@@ -24,12 +24,12 @@
         window.moveTo(-2600, 0);
       }
       origin();
-      resizeTo(650, 800);
+      resizeTo(800, 1000);
       window.parent;
       window.top;
     </script>
 
-    <div class="container pt-3 pb-3" style="width: 600px; margin 0 auto;">
+    <div class="container pt-3 pb-3" style="width: 800px; margin 0 auto;">
       {% if worker.status %}
       <h1 class="text-info text-center">
         <span class="lead fs-5 text-secondary">the meaning of </span>
@@ -37,16 +37,17 @@
       </h1>
 
       <div
-        class="alert alert-light fs-5 border shadow"
+        class="alert alert-light fs-6 border shadow"
         role="alert"
         style="max-width: 600px; margin: 0 auto"
       >
-        <h2>Nepali Meanings:</h2>
+        <h2 class="fs-4">Nepali Meanings:</h2>
+        <img src="" alt="" />
 
         {% for meaning in worker.hindi %} {{meaning}}, {% endfor %}
       </div>
 
-      {% if worker.english %}
+      {% comment %} {% if worker.english %}
 
       <div
         class="alert alert-light fs-5 border shadow"
@@ -56,6 +57,31 @@
         <h2>English Definations:</h2>
         {% for meaning in worker.english %}
         <p>{{meaning|slice:100}}</p>
+        {% endfor %}
+      </div>
+      {% endif %} {% endcomment %} {% if worker.gdef %}
+
+      <div
+        class="alert alert-light fs-5 border shadow"
+        role="alert"
+        style="max-width: 600px; margin: 0 auto"
+      >
+        <h2 class="fs-4">English Definations:</h2>
+        {% for meaning in worker.gdef %}
+        <p class="fs-6">{{meaning}}</p>
+        {% endfor %}
+      </div>
+      {% endif %} {% if worker.gimg %}
+
+      <div
+        class="alert alert-light fs-5 border shadow"
+        role="alert"
+        style="max-width: 600px; margin: 0 auto"
+      >
+        <h2 class="fs-4">Images</h2>
+        {% for meaning in worker.gimg %}
+        <img src="{{meaning}}" alt="" />
+
         {% endfor %}
       </div>
       {% endif %} {% endif %} {% if not worker.status %}

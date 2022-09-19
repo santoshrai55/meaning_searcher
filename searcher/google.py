@@ -12,49 +12,35 @@ def googleSearch(term):
     driver = webdriver.Chrome(options=options)
     driver.get(f'https://www.google.com/search?q={newterm}')
     time.sleep(0.05)
+
+    # Changes language to English
     element = driver.find_element(
         By.LINK_TEXT, 'Change to English')
     element.click()
 
     time.sleep(0.1)
+
+    # Searches definations
     element2 = driver.find_elements(
         By.CLASS_NAME, 'VwiC3b')
-    # element2 = driver.find_elements(By.TAG_NAME, 'span')
-    element2 = [item.text for item in element2]
-    print(f'there are {len(element2)} results!')
-    counter = 1
-    for item in (element2):
-        print(f'{counter}. {item}')
-        counter += 1
 
+    # Converts the results in to a list
+    definations = [item.text for item in element2]
+    definations = definations[1:]
+
+    # Searches images
     driver.get(f'https://www.google.com/search?q={term}&tbm=isch&ved')
-    # img = driver.find_element(
-    #     By.LINK_TEXT, 'Images')
-    # img.click()
     time.sleep(0.1)
     images = driver.find_elements(
         By.TAG_NAME, "img")
+    # converts image links to a list
     images_list = [str(item.get_attribute('src')) for item in images]
 
-    # filtered_images = []
-    # filter_text = "encrypted"
-    # for item in images_list:
-    #     if filter_text in item:
-    #         filtered_images.append(item)
-
-    # print(filtered_images)
-    newimage = []
-
+    # filters out the unneccessary results
+    image_links = []
     for item in images_list:
         if "encrypted" in item:
-            newimage.append(item)
-    print(f'there are {len(newimage)} in the images.')
-    for each in newimage:
-        print(each)
+            image_links.append(item)
 
-
-googleSearch("Mother")
-# Z26q7c UK95Uc VGXe8
-# By.TAG_NAME
-# By.LINK_TEXT
-# new_list = [item for item in my_list if substring not in item]
+    results = [definations, image_links]
+    return results

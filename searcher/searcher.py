@@ -39,6 +39,10 @@ def searcher():
 
                     # else:
                     #     idiom = " "
+                    google_search = functions.googleSearch(term)
+                    print(f'Google search has {len(google_search)} items')
+                    definations = google_search[0]
+                    images = google_search[1]
                     english_meaning = functions.englishMeaning(term)
                     hindi_meaning = functions.hindiMeaning(term)
                     time.sleep(0.02)
@@ -47,11 +51,12 @@ def searcher():
                     # print("--------------------")
 
                     result = {'status': "ok", 'term': term, 'english': english_meaning,
-                              'hindi': hindi_meaning}
+                              'hindi': hindi_meaning, 'gdef': definations, 'gimg': images}
                     return result
                 else:
                     result = {'status': False, 'term': term, 'english': '',
-                              'hindi': ''}
+                              'hindi': '', 'gdef': '', 'gimg': ''}
+                    print(images[5])
                     return result
                 # soup = BeautifulSoup(page.content, "html.parser")
                 # terms = ''
