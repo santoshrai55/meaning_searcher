@@ -103,7 +103,7 @@ def googleSearch(term):
         By.LINK_TEXT, 'Change to English')
     element.click()
     print('changed to English')
-    time.sleep(0.1)
+    time.sleep(0.05)
     print('selecting the definations')
     # Searches definations
     element2 = driver.find_elements(
@@ -118,7 +118,7 @@ def googleSearch(term):
     print('searching the images')
     # Searches images
     driver.get(f'https://www.google.com/search?q={term}&tbm=isch&ved')
-    time.sleep(0.1)
+    time.sleep(0.05)
     images = driver.find_elements(
         By.TAG_NAME, "img")
     # converts image links to a list
