@@ -5,12 +5,12 @@ import time
 
 
 def googleSearch(term):
-    term = f"define {term}"
+    newterm = f"define {term}"
     options = webdriver.ChromeOptions()
     options.add_experimental_option(
         'prefs', {'intl.accept_languages': 'en,en_US'})
     driver = webdriver.Chrome(options=options)
-    driver.get(f'https://www.google.com/search?q={term}')
+    driver.get(f'https://www.google.com/search?q={newterm}')
     time.sleep(0.05)
     element = driver.find_element(
         By.LINK_TEXT, 'Change to English')
@@ -27,7 +27,34 @@ def googleSearch(term):
         print(f'{counter}. {item}')
         counter += 1
 
+    driver.get(f'https://www.google.com/search?q={term}&tbm=isch&ved')
+    # img = driver.find_element(
+    #     By.LINK_TEXT, 'Images')
+    # img.click()
+    time.sleep(0.1)
+    images = driver.find_elements(
+        By.TAG_NAME, "img")
+    images_list = [str(item.get_attribute('src')) for item in images]
 
-googleSearch("Break a leg")
+    # filtered_images = []
+    # filter_text = "encrypted"
+    # for item in images_list:
+    #     if filter_text in item:
+    #         filtered_images.append(item)
+
+    # print(filtered_images)
+    newimage = []
+
+    for item in images_list:
+        if "encrypted" in item:
+            newimage.append(item)
+    print(f'there are {len(newimage)} in the images.')
+    for each in newimage:
+        print(each)
+
+
+googleSearch("Mother")
 # Z26q7c UK95Uc VGXe8
 # By.TAG_NAME
+# By.LINK_TEXT
+# new_list = [item for item in my_list if substring not in item]
