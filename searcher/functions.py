@@ -96,7 +96,6 @@ def googleSearch(term):
         'prefs', {'intl.accept_languages': 'en,en_US'})
     driver = webdriver.Chrome(options=options)
     driver.get(f'https://www.google.com/search?q={newterm}')
-    time.sleep(0.05)
 
     # Changes language to English
     element = driver.find_element(
